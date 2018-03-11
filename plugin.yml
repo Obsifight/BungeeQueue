@@ -1,0 +1,5 @@
+name: Queue
+main: fr.crashkiller.queue.Main
+version: 1.1
+author: CrashKiller, ThisIsMac
+depends: ['Yamler']
