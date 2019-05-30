@@ -43,6 +43,12 @@ public class BungeeListener implements Listener{
 				main.getProxy().getPlayer(playerName).sendMessage(new TextComponent(main.getPrefix() + main.getTranslation().getAddQueue()+ " "+place+"/"+main.getWaitlist(serverName).size()));
 			}else if(main.getWaitlist(serverName).contains(playerName))
 				event.setCancelled(true);
+			} else if ((!main.serverIsFull(event.getTarget(), false) && (main.getWaitlist(serverName).size() == 0)) && !main.getWaitlist(serverName).contains(playerName)) {
+				event.setCancelled(false);
+			} else {
+				main.getProxy().getPlayer(playerName).sendMessage(new TextComponent(main.getPrefix() + "Une erreur est survenue."));
+				event.setCancelled(true);
+			}
 		}
 	}
 	
